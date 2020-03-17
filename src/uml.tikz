@@ -1,0 +1,92 @@
+\newpage
+\section{Прочее}
+\subsection{Модели процессов}
+
+\begin{center}
+    \begin{tikzpicture}
+        \usetikzlibrary{shapes}
+        \usetikzlibrary{shapes.multipart}
+        \tikzstyle{oval}=[ellipse,aspect=2,minimum height=1cm,text centered,draw]
+        \tikzstyle{user-box}=[rectangle,minimum width=1.25cm,minimum height=2cm]
+        \tikzstyle{arrow}=[->,>=stealth]
+
+        \draw (0,0) circle(0.25);
+        \draw (0,0) ++(0,-0.25) -- ++(0,-0.75);
+        \draw (0,0) ++(-0.5,-0.5) -- ++(1,0);
+        \draw (0,0) ++(-0.5,-1.5) -- ++(0.5,0.5) -- ++(0.5,-0.5);
+        \node (n-guest) at (0,-1.75) {Гость};
+        \node[user-box] (u-guest) at (0,-0.625) {};
+
+        \draw (0,-4) circle(0.25);
+        \draw (0,-4) ++(0,-0.25) -- ++(0,-0.75);
+        \draw (0,-4) ++(-0.5,-0.5) -- ++(1,0);
+        \draw (0,-4) ++(-0.5,-1.5) -- ++(0.5,0.5) -- ++(0.5,-0.5);
+        \node (n-user) at (0,-5.75) {Пользователь};
+        \node[user-box] (u-user) at (0,-4.625) {};
+
+        \draw (0,-10) circle(0.25);
+        \draw (0,-10) ++(0,-0.25) -- ++(0,-0.75);
+        \draw (0,-10) ++(-0.5,-0.5) -- ++(1,0);
+        \draw (0,-10) ++(-0.5,-1.5) -- ++(0.5,0.5) -- ++(0.5,-0.5);
+        \node (n-premium-user) at (0,-11.75cm-6pt) {\begin{tabular}{c}Премиум-\\-пользователь\end{tabular}};
+        \node[user-box] (u-premium-user) at (0,-10.625) {};
+
+        \draw (0,-14) circle(0.25);
+        \draw (0,-14) ++(0,-0.25) -- ++(0,-0.75);
+        \draw (0,-14) ++(-0.5,-0.5) -- ++(1,0);
+        \draw (0,-14) ++(-0.5,-1.5) -- ++(0.5,0.5) -- ++(0.5,-0.5);
+        \node (n-admin) at (0,-15.75) {Администратор};
+        \node[user-box] (u-admin) at (0,-14.625) {};
+
+        \node[oval] (p-about)              at (5,2) {\begin{tabular}{c}Посмотреть\\<<о сайте>>\end{tabular}};
+        \node[oval] (p-registration)       at (10,2) {Зарегистрироваться};
+        \node[oval] (p-authentication)     at (10,0) {Войти в аккаунт};
+        \node[oval] (p-get-recommendation) at (5,-2) {\begin{tabular}{c}Получить\\рекомендацию\end{tabular}};
+        \node[oval] (p-listen)             at (14,-1) {\begin{tabular}{c}Прослушать\\трек\end{tabular}};
+        \node[oval] (p-watch-profile)      at (14,-3) {\begin{tabular}{c}Просмотреть\\профиль\end{tabular}};
+        \node[oval] (p-edit-profile)       at (13,-6) {\begin{tabular}{c}Отредактировать\\профиль\end{tabular}};
+        \node[oval] (p-save-track)         at (10,-4.5) {\begin{tabular}{c}Сохранить\\трек\end{tabular}};
+        \node[oval] (p-pay-subscription)   at (4,-6) {\begin{tabular}{c}Оплатить\\подписку\end{tabular}};
+        \node[oval] (p-compare-user)       at (6,-7.5) {\begin{tabular}{c}Сравнить вкусы\\с другим пользователем\end{tabular}};
+        \node[oval] (p-mainstreamometer)   at (12,-8) {\begin{tabular}{c}Сравнить вкусы\\с трендами\end{tabular}};
+        \node[oval] (p-add-track)          at (5,-11) {Добавить трек};
+        \node[oval] (p-remove-track)       at (10,-11) {Удалить трек};
+        \node[oval] (p-add-admin)          at (5,-16) {\begin{tabular}{c}Добавить\\администратора\end{tabular}};
+        \node[oval] (p-remove-admin)       at (10,-15) {\begin{tabular}{c}Удалить\\администратора\end{tabular}};
+        \node[oval] (p-remove-account)     at (10,-12.5) {Удалить аккаунт};
+
+        \draw[arrow] (u-user) -- (n-guest);
+        \draw[arrow] (u-premium-user) -- (n-user);
+        \draw[arrow] (u-admin) -- (n-premium-user);
+
+        \draw (u-guest) -- (p-about);
+        \draw (u-guest) -- (p-registration);
+        \draw (u-guest) -- (p-authentication);
+        \draw (u-user) -- (p-get-recommendation);
+        \draw (u-user) -- (p-listen);
+        \draw (u-user) -- (p-watch-profile);
+        \draw (u-user) -- (p-edit-profile);
+        \draw (u-user) -- (p-save-track);
+        \draw (u-user) -- (p-pay-subscription);
+        \draw (u-premium-user) -- (p-compare-user);
+        \draw (u-premium-user) -- (p-mainstreamometer);
+        \draw (u-admin) -- (p-add-track);
+        \draw (u-admin) -- (p-remove-track);
+        \draw (u-admin) -- (p-add-admin);
+        \draw (u-admin) -- (p-remove-admin);
+        \draw (u-admin) -- (p-remove-account);
+
+        \draw[arrow,dashed] (p-registration) -- node[pos=0.5]{расширяет} (p-authentication);
+        \draw[arrow,dashed] (p-listen) -- node[pos=0.5]{включает} (p-get-recommendation);
+        \draw[arrow,dashed] (p-edit-profile) -- node[pos=0.5]{\begin{tabular}{c}включает\\расширяет\end{tabular}} (p-watch-profile);
+        \draw[arrow,dashed] (p-remove-account) -- node[pos=0.5]{расширяет} (p-remove-admin);
+        \draw[arrow,dashed] (p-save-track) -- node[pos=0.5]{включает} (p-edit-profile);
+        \draw[arrow,dashed] (p-pay-subscription) -- node[pos=0.5]{включает} (p-edit-profile);
+        \draw[arrow,dashed] (p-compare-user) -- node[pos=0.5] {включает} (p-watch-profile);
+
+        \draw (1.5,3) rectangle (16,-17);
+        % \draw (u-guest) -- (p-registration);
+        % \draw (u-guest) -- (p-authentication);
+        % \draw[arrow,dashed] (p-authentication) -- node[pos=0.5]{включает} (p-registration);
+    \end{tikzpicture}
+\end{center}
