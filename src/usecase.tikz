@@ -1,79 +1,58 @@
 \begin{tikzpicture}
+    \usetikzlibrary{shapes}
+    \usetikzlibrary{shapes.multipart}
+    \tikzstyle{oval}=[ellipse,aspect=2,minimum height=1cm,text centered,draw]
+    \tikzstyle{user-box}=[rectangle,minimum width=1.25cm,minimum height=2cm]
+    \tikzstyle{arrow}=[->,>=stealth]
+
     \draw (0,0) circle(0.25);
     \draw (0,0) ++(0,-0.25) -- ++(0,-0.75);
     \draw (0,0) ++(-0.5,-0.5) -- ++(1,0);
     \draw (0,0) ++(-0.5,-1.5) -- ++(0.5,0.5) -- ++(0.5,-0.5);
-    \node at (0,-1.75) {Пользователь};
+    \node (n-guest) at (0,-1.75) {Гость};
+    \node[user-box] (u-guest) at (0,-0.625) {};
 
-    \draw (0,-5) circle(0.25);
-    \draw (0,-5) ++(0,-0.25) -- ++(0,-0.75);
-    \draw (0,-5) ++(-0.5,-0.5) -- ++(1,0);
-    \draw (0,-5) ++(-0.5,-1.5) -- ++(0.5,0.5) -- ++(0.5,-0.5);
-    \node at (0,-6.75) {Премиум};
-    \node at (0,-6.75cm-12pt) {Пользователь};
+    \draw (0,-4) circle(0.25);
+    \draw (0,-4) ++(0,-0.25) -- ++(0,-0.75);
+    \draw (0,-4) ++(-0.5,-0.5) -- ++(1,0);
+    \draw (0,-4) ++(-0.5,-1.5) -- ++(0.5,0.5) -- ++(0.5,-0.5);
+    \node (n-user) at (0,-5.75) {Пользователь};
+    \node[user-box] (u-user) at (0,-4.625) {};
 
-    \draw[->] (0,-4.5) -- (0,-2);
+    \draw (0,-8) circle(0.25);
+    \draw (0,-8) ++(0,-0.25) -- ++(0,-0.75);
+    \draw (0,-8) ++(-0.5,-0.5) -- ++(1,0);
+    \draw (0,-8) ++(-0.5,-1.5) -- ++(0.5,0.5) -- ++(0.5,-0.5);
+    \node (n-premium-user) at (0,-9.75cm-6pt) {\begin{tabular}{c}Премиум-\\-пользователь\end{tabular}};
+    \node[user-box] (u-premium-user) at (0,-8.625) {};
 
-    \node at (6.25,0) {Авторизация};
-    \draw (6.25,0) ellipse (1.5 and 0.75);
+    \draw (0,-12) circle(0.25);
+    \draw (0,-12) ++(0,-0.25) -- ++(0,-0.75);
+    \draw (0,-12) ++(-0.5,-0.5) -- ++(1,0);
+    \draw (0,-12) ++(-0.5,-1.5) -- ++(0.5,0.5) -- ++(0.5,-0.5);
+    \node (n-admin) at (0,-13.75) {Администратор};
+    \node[user-box] (u-admin) at (0,-12.625) {};
 
-    \node at (6.25,-2) {Прослушивание};
-    \node at (6.25,-2cm-12pt) {музыки};
-    \draw (6.25,-2cm-6pt) ellipse (2 and 1);
+    \node[oval] (p-registration) at (5,0) {Зарегистрироваться};
+    \node[oval,below of=p-registration] (p-authentication) {Войти в аккаунт};
+    \node[oval,below of=p-authentication] (p-get-recommendation) {Получить рекомендацию};
+    \node[oval,below of=p-get-recommendation] (p-listen) {Прослушать трек};
+    \node[oval,below of=p-listen] (p-watch-profile) {Просмотреть профиль};
+    \node[oval,below of=p-watch-profile] (p-edit-profile) {Отредактировать профиль};
+    \node[oval,below of=p-edit-profile] (p-save-track) {Сохранить трек};
+    \node[oval,below of=p-save-track] (p-pay-subscription) {Оплатить подписку};
+    \node[oval,below of=p-pay-subscription] (p-compare-user) {\begin{tabular}{c}Сравнить вкусы\\с другим пользователем\end{tabular}};
+    \node[oval,below of=p-compare-user] (p-mainstreamometer) {\begin{tabular}{c}Сравнить вкусы\\с трендами\end{tabular}};
+    \node[oval,below of=p-mainstreamometer] (p-add-track) {Добавить трек};
+    \node[oval,below of=p-add-track] (p-remove-track) {Удалить трек};
+    \node[oval,below of=p-remove-track] (p-add-admin) {Добавить админа};
+    \node[oval,below of=p-add-admin] (p-remove-admin) {Удалить админа};
+    \node[oval,below of=p-remove-admin] (p-remove-account) {Удалить аккаунт};
 
-    \node at (12.5,0) {Отправка информации о};
-    \node at (12.5,0cm-12pt) {прослушанном треке};
-    \node at (12.5,0cm-24pt) {на сервер};
-    \draw (12.5,0cm-12pt) ellipse (3 and 1.5);
-
-    \node at (12.5,-4) {Анализ полученной};
-    \node at (12.5,-4cm-12pt) {информации и расчет};
-    \node at (12.5,-4cm-24pt) {предпочтений пользователя};
-    \draw (12.5,-4cm-12pt) ellipse (3 and 1.5);
-
-    \node at (6.25,-5) {Получение рекомендаций};
-    \node at (6.25,-5cm-12pt) {на основе предпочтений};
-    \draw (6.25,-5cm-6pt) ellipse (3 and 1.5);
-
-    \node at (6.25,-9) {Оплата премиум-};
-    \node at (6.25,-9cm-12pt) {-подписки};
-    \draw (6.25,-9cm-6pt) ellipse (2 and 1);
-
-    \node at (12.5,-10) {Изменение статуса};
-    \node at (12.5,-10cm-12pt) {пользователя};
-    \draw (12.5,-10cm-6pt) ellipse (2 and 1);
-
-    \node at (6.25,-12) {Отправка личных};
-    \node at (6.25,-12cm-12pt) {сообщений};
-    \draw (6.25,-12cm-6pt) ellipse (2 and 1);
-
-    \node at (6.25,-15) {Получение личных};
-    \node at (6.25,-15cm-12pt) {сообщений};
-    \draw (6.25,-15cm-6pt) ellipse (2 and 1);
-
-    \node at (12.5,-13.5) {Сохранение};
-    \node at (12.5,-13.5cm-12pt) {сообщения};
-    \draw (12.5,-13.5cm-6pt) ellipse (2 and 1);
-
-    \draw (1,-0.5) -- (4.75,0);
-    \draw (1,-0.5) -- (4.25,-2cm-6pt);
-    \draw (1,-0.5) -- (3.25,-5cm-6pt);
-    \draw (1,-0.5) -- (4.25,-9cm-6pt);
-
-    \draw (1,-5.5) -- (4.75,0);
-    \draw (1,-5.5) -- (4.25,-2cm-6pt);
-    \draw (1,-5.5) -- (3.25,-5cm-6pt);
-    \draw (1,-5.5) -- (4.25,-9cm-6pt);
-
-    \draw (1,-5.5) -- (4.25,-12cm-6pt);
-    \draw (1,-5.5) -- (4.25,-15cm-6pt);
-
-    \draw[->,dashed] (8.25,-2cm-6pt) -- node[pos=0.5]{включает} (9.5,-12pt);
-    \draw[->,dashed] (12.5,-1.5cm-12pt) -- node[pos=0.5]{расширяет} (12.5,-2.5cm-12pt);
-    \draw[->,dashed] (12.5,-5.5cm-12pt) .. controls (12.5,-8cm-9pt) .. node[pos=0.5]{расширяет} (6.25,-6.5cm-6pt);
-
-    \draw[->,dashed] (8.25,-9cm-6pt) -- node[pos=0.5]{включает} (10.5,-10cm-6pt);
-
-    \draw[->,dashed] (8.25,-12cm-6pt) -- node[pos=0.5]{включает} (10.5,-13.5cm-6pt);
-    \draw[<-,dashed] (8.25,-15cm-6pt) -- node[pos=0.5]{расширяет} (10.5,-13.5cm-6pt);
+    \draw[arrow] (u-user) -- (n-guest);
+    \draw[arrow] (u-premium-user) -- (n-user);
+    \draw[arrow] (u-admin) -- (n-premium-user);
+    % \draw (u-guest) -- (p-registration);
+    % \draw (u-guest) -- (p-authentication);
+    % \draw[arrow,dashed] (p-authentication) -- node[pos=0.5]{включает} (p-registration);
 \end{tikzpicture}
