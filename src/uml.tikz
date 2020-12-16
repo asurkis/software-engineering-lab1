@@ -44,11 +44,11 @@
         \node[oval] (p-get-recommendation) at (5,-2) {\begin{tabular}{c}Получить\\рекомендацию\end{tabular}};
         \node[oval] (p-listen)             at (14,-1) {\begin{tabular}{c}Прослушать\\трек\end{tabular}};
         \node[oval] (p-watch-profile)      at (14,-3) {\begin{tabular}{c}Просмотреть\\профиль\end{tabular}};
-        \node[oval] (p-edit-profile)       at (13,-6) {\begin{tabular}{c}Отредактировать\\профиль\end{tabular}};
-        \node[oval] (p-save-track)         at (10,-4.5) {\begin{tabular}{c}Сохранить\\трек\end{tabular}};
+        \node[oval] (p-edit-profile)       at (13.25,-6.5) {\begin{tabular}{c}Отредактировать\\профиль\end{tabular}};
+        \node[oval] (p-save-track)         at (8,-4.75) {\begin{tabular}{c}Сохранить\\трек\end{tabular}};
         \node[oval] (p-pay-subscription)   at (4,-6) {\begin{tabular}{c}Оплатить\\подписку\end{tabular}};
         \node[oval] (p-compare-user)       at (6,-7.5) {\begin{tabular}{c}Сравнить вкусы\\с другим пользователем\end{tabular}};
-        \node[oval] (p-mainstreamometer)   at (12,-8) {\begin{tabular}{c}Сравнить вкусы\\с трендами\end{tabular}};
+        \node[oval] (p-mainstreamometer)   at (12,-9.5) {\begin{tabular}{c}Сравнить вкусы\\с трендами\end{tabular}};
         \node[oval] (p-add-track)          at (5,-11) {Добавить трек};
         \node[oval] (p-remove-track)       at (10,-11) {Удалить трек};
         \node[oval] (p-add-admin)          at (5,-16) {\begin{tabular}{c}Добавить\\администратора\end{tabular}};
